@@ -1,0 +1,27 @@
+@startuml
+start
+floating note: CENÁRIO 3: Sequencial com interação
+partition modo_sequencial {
+:max=70000;
+
+partition interação {
+:nome;<<input>>
+:sobrenome;<<input>>
+:global nomefull =
+ nome + sobrenome;
+}
+:conta_primos(1,max);
+repeat 
+  :eh_primo(N);
+  if () then (yes)
+   :cont++;
+  else (no) 
+  endif
+repeat while (N<max/2) is (yes) not (no)
+:global cont++;
+
+:print(global nomefull);
+:print(global cont);
+}
+stop
+@enduml

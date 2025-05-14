@@ -1,0 +1,32 @@
+
+@startuml
+start
+floating note: CENÁRIO 4: Thread com interação
+partition modo_thread {
+:max=70000;
+
+fork
+:conta_primos(1,max);
+repeat 
+  :eh_primo(N);
+  if () then (yes)
+   :cont++;
+  else (no) 
+  endif
+repeat while (N<max/2) is (yes) not (no)
+:global cont++;
+
+fork again
+partition interação {
+    :nome;<<input>>
+    :sobrenome;<<input>>
+    :global nomefull =
+    nome + sobrenome;
+}
+end fork
+:print(global nomefull);
+:print(global cont);
+
+}
+stop
+@enduml

@@ -1,0 +1,34 @@
+
+@startuml
+start
+floating note: CENÁRIO 2: Thread com segmentos
+partition modo_thread {
+:max=70000;
+
+fork
+:conta_primos(1,max/2);
+repeat 
+  :eh_primo(N);
+  if () then (yes)
+   :cont++;
+  else (no) 
+  endif
+repeat while (N<max/2) is (yes) not (no)
+:global cont++;
+
+fork again
+:conta_primos(max/2+1,max);
+repeat 
+  :eh_primo(N);
+  if () then (yes)
+   :cont++;
+  else (no) 
+  endif
+repeat while (N<max) is (yes) not (no)
+:global cont++;
+
+end fork
+:print(global cont);
+}
+stop
+@enduml

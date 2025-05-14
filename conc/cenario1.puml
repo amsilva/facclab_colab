@@ -1,0 +1,17 @@
+@startuml
+start
+floating note: CENÁRIO 1: Sequencial
+partition modo_sequencial {
+:max=70000;
+:conta_primos(1,max);
+repeat 
+  :eh_primo(N);
+  if () then (yes)
+   :cont++;
+  else (no) 
+  endif
+repeat while (N<max) is (yes) not (no)
+:print(cont);
+}
+stop
+@enduml
